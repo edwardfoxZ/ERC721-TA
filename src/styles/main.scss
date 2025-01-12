@@ -1,0 +1,44 @@
+$size: 35px;
+$border: 30px;
+$green: #72ff7d;
+$red: #ff4242;
+$yellow: #ffda72;
+$blue: #42e5ff;
+
+.status {
+  position: relative;
+  display: inline-block;
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  margin: $border;
+
+  &.online,
+  &.online:before {
+    background: $green;
+  }
+
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: -($border / 2);
+    top: -($border / 2);
+    width: $size + $border;
+    height: $size + $border;
+    border-radius: 50%;
+    animation: pulse 1.5s infinite ease-in;
+  }
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(0.5);
+    opacity: 1;
+  }
+
+  to {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
